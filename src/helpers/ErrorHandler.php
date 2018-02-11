@@ -25,12 +25,15 @@ class ErrorHandler
     public static function processValidationErrors($errors,$code=400)
     {
         $response = array();
+        $errorFields = array();
+
         foreach($errors as $error)
         {
            $response[] = "Validation error in ".str_ireplace(['[',']'],'',$error->getPropertyPath());
+            $errorFields[] = str_ireplace(['[',']'],'',$error->getPropertyPath());
         }
 
-        return new Response(json_encode(["message"=>$response]),$code,['Content-Type'=>'application/json','X-Status-Reason'=>'Validation Failed']);
+        return new Response(json_encode(["message"=>$response]),$code,['Content-Type'=>'application/json','X-Status-Reason'=>'Validation Failed','X-Validation-Errors'=>$errorFields]);
     }
 
     public static function processDuplicateEntry()

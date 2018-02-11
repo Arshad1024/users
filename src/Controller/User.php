@@ -22,8 +22,9 @@ use Silex\Api\ControllerProviderInterface;
 class UserController implements ControllerProviderInterface
 {
 
-
-
+/* Default function */
+/* @params Application $appInstance*/
+/* @return */
     public function connect(Application $appInstance)
     {
 

@@ -11,3 +11,4 @@ define('DB_username','root');
 define('DB_password','');
 define('DB_host','localhost');
 define('DB_name','insurance_engine');
+define('whiteListedIps','127.0.0.1,::1');
